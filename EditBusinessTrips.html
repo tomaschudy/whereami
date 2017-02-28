@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+
+    <style>
+        * {box-sizing:border-box;}
+        ul {list-style-type: none;}
+        body {font-family: Verdana,sans-serif;}
+
+        table, td, th {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 15px;
+        }
+
+        /* link colors */
+        a:link {
+            color: red;
+        }
+
+        a:visited {
+            color: green;
+        }
+
+        a:hover {
+            color: hotpink;
+        }
+
+        a:active {
+            color: blue;
+        }
+    </style>
+</head>
+
+    <body>
+
+    <table>
+        <tr>
+            <th>ID:</th>
+            <th>Start:</th>
+            <th>End:</th>
+            <th>Destination:</th>
+        </tr>
+
+        {{range .}}
+        <tr>
+            <td><a href="/EditBusinessTrip/{{.ID}}">{{.ID}}</a></td>
+            <td>{{.Start }}</td>
+            <td>{{.End}}</td>
+            <td>{{.Dest}}</td>
+
+        </tr>
+        <br>
+        {{end}}
+        </tr>
+
+        <tr>
+            <td><input type="number" name="quantity" min="1" max="1500"></td>
+            <td><input type="datetime-local" name="starttime" value="2006-01-02T15:04"></td>
+            <td><input type="datetime-local" name="endtime" value="2006-01-02T15:04"></td>
+            <td><input type="text" name="destination" value="Frankfurt">  <a href="/save/">save</a></td>
+        </tr>
+    </table>
+
+    <a href="/EnterNewBusinessTrip/">enter new trip</a>
+
+    </body>
+</html>
+
